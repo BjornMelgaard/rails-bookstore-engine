@@ -1,6 +1,6 @@
 database:
   override:
-    - mv config/database.ci.yml spec/dummy/config/database.yml
+    - cp config/database.yml.ci spec/dummy/config/database.yml
     - bundle exec rake app:db:create app:db:schema:load --trace
 
 dependencies:
