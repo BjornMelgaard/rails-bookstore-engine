@@ -1,6 +1,7 @@
 database:
   override:
-    - bundle exec rake app:db:create app:db:schema:load --trace
+    - cp spec/dummy/config/database.ci.yml spec/dummy/config/database.yml
+    - bundle exec rake app:db:create app:db:schema:load
 
 dependencies:
   pre:
