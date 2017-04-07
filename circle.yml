@@ -1,3 +1,8 @@
+database:
+  override:
+    - mv config/database.ci.yml spec/dummy/config/database.yml
+    - bundle exec rake app:db:create app:db:schema:load --trace
+
 dependencies:
   pre:
     - gem install bundler
