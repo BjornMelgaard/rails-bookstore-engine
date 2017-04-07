@@ -1,0 +1,4 @@
+%h1.general-title-margin Order #{presenter.order_number}
+= render partial: 'shopper/orders/details', locals: { order: presenter.order_details }
+= render partial: 'shopper/order_item/table', locals: { items: presenter.items_table }
+= render partial: 'shopper/orders/summary', locals: { order: presenter.order_summary }

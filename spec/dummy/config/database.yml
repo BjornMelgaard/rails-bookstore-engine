@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: bookstore_engine
+  password: bookstore_engine
+
+development:
+  <<: *default
+  database: bookstore_engine_development
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: bookstore_engine_test
+
+production:
+  <<: *default
+  database: bookstore_engine_production

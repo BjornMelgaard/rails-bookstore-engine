@@ -1,0 +1,6 @@
+= render layout: 'shopper/checkout/layout' do
+  = render partial: 'shopper/orders/details', locals: { order: presenter.order_details }
+  = render partial: 'shopper/order_item/table', locals: { items: presenter.items }
+  = render partial: 'shopper/orders/summary', locals: { order: presenter.order_summary }
+  .text-center
+    = link_to t('simple_form.titles.place_order'), checkout_path(:complete), class: 'btn btn-default mb-20'
