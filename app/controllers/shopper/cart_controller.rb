@@ -22,7 +22,6 @@ module Shopper
       CartPage::AddProduct.call(params) do
         on(:invalid_product) do
           redirect_to main_app.root_path, flash: { error: 'Invalid product' }, js: true
-          return
         end
       end
     end

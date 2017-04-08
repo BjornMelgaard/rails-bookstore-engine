@@ -49,8 +49,11 @@ module Shopper
     private
 
     def set_progress_presenter
-      select_up_to_step = minimal_accessible_step
-      select_up_to_step = :complete if step == :complete
+      select_up_to_step = if step == :complete
+                            :complete
+                          else
+                            minimal_accessible_step
+                          end
       present Shopper::CheckoutPage::ProgressPresenter.new(
         steps,
         step,
