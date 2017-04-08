@@ -1,5 +1,3 @@
-require_relative '../concerns/caller_attachable'
-
 module Shopper
   module OrderDetails
     class OrderDecorator < SimpleDelegator

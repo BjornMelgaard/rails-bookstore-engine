@@ -1,3 +1,3 @@
 RSpec.configure do |config|
-  config.include ShowMeTheCookies, :type => :feature
+  config.include ShowMeTheCookies, type: :feature
 end

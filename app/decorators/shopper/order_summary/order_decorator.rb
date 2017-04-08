@@ -1,5 +1,3 @@
-require_relative '../concerns/view_helpers'
-
 module Shopper
   module OrderSummary
     class OrderDecorator < SimpleDelegator

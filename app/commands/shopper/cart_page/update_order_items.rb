@@ -2,14 +2,14 @@ module Shopper
   module CartPage
     class UpdateOrderItems
       def initialize(params, order)
-        @params = params
+        @iparams = params.permit(items: [:quantity]).require(:items)
         @order = order
       end
 
       attr_reader :items
 
       def call
-        return true unless iparams
+        return true unless @iparams
         @items = update
         @items.all?(&:valid?)
       end
@@ -17,13 +17,7 @@ module Shopper
       private
 
       def update
-        @order.order_items.update(iparams.keys, iparams.values)
-      end
-
-      def iparams
-        @iparams = @params.permit(items: [:quantity]).require(:items)
-      rescue
-        @iparams = nil
+        @order.order_items.update(@iparams.keys, @iparams.values)
       end
     end
   end
